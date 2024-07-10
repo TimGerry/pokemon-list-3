@@ -23,7 +23,7 @@ export class PokemonMainComponent implements OnInit {
     setTimeout(() => {
       this.pokemonList = [
         { name: 'garchomp', type: 'ground', type2: 'dragon', attack: 'outrage', level: 60 },
-        {name: 'squirtle', type: 'water', attack: 'water gun', level: 5 },
+        { name: 'squirtle', type: 'water', attack: 'water gun', level: 5 },
         { name: 'magikarp', type: 'water', attack: 'splash', level: 100 }
       ];
     }, 2000);

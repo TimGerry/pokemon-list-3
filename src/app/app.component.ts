@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Pokemon } from '../models/pokemon.model';
-import { OptionalPipe } from '../pipes/optional.pipe';
+import { Pokemon } from './models/pokemon.model';
+import { OptionalPipe } from './pipes/optional.pipe';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({

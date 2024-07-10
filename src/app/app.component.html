@@ -19,7 +19,7 @@
                 <tr (click)="attack(pokemon)">
                     <td [class.level100]="pokemon.level === 100">{{ pokemon.name }}</td>
                     <td>{{ pokemon.type }}</td>
-                    <td>{{ pokemon.type2 }}</td>
+                    <td>{{ pokemon.type2 | optional : '/' }}</td>
                     <td>{{ pokemon.attack }}</td>
                     <td>{{ pokemon.level }}</td>
                     <td><img class="miniature" [src]="'https://img.pokemondb.net/artwork/avif/' + pokemon.name + '.avif'" [alt]="pokemon.name"></td>
@@ -27,4 +27,13 @@
             }
         </tbody>
     </table>
+
+    <h2>Add Pokémon</h2>
+    <p>Coming soon!</p>
+
+    <h2>Pokémon shop (prices of {{ today | date : 'dd/MM/YYYY'}})</h2>
+    <ul>
+        <li>Poké ball {{ 200 | currency : 'JPY' }} </li>
+        <li>Potion {{ 300 | currency : 'JPY' }} </li>
+    </ul>
 </div>

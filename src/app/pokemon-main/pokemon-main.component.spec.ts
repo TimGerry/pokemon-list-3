@@ -1,11 +1,20 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { PokemonMainComponent } from './pokemon-main.component';
+import { PokemonService } from '../services/pokemon.service';
 
 fdescribe('PokemonMainComponent', () => {
   let component: PokemonMainComponent;
   let fixture: ComponentFixture<PokemonMainComponent>;
   let nativeEl: HTMLElement;
+  let pokemonService: PokemonService
+
+  const pokemonList = [
+    { name: 'charmander', type: 'fire', attack: 'ember', level: 5 },
+    { name: 'squirtle', type: 'water', attack: 'water gun', level: 5 },
+    { name: 'bulbasaur', type: 'grass', type2: 'poison', attack: 'razor leaf', level: 6 },
+    { name: 'pikachu', type: 'electric', attack: 'thundershock', level: 7 }
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,23 +22,20 @@ fdescribe('PokemonMainComponent', () => {
     })
     .compileComponents();
 
+    pokemonService = TestBed.inject(PokemonService);
+
     fixture = TestBed.createComponent(PokemonMainComponent);
     component = fixture.componentInstance;
     nativeEl = fixture.nativeElement;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display pokémon', async () => {
-    component.pokemonList = [
-      { name: 'charmander', type: 'fire', attack: 'ember', level: 5 },
-      { name: 'squirtle', type: 'water', attack: 'water gun', level: 5 },
-      { name: 'bulbasaur', type: 'grass', type2: 'poison', attack: 'razor leaf', level: 6 },
-      { name: 'pikachu', type: 'electric', attack: 'thundershock', level: 7 }
-    ];
+  fit('should display pokémon', async () => {
+    spyOn(pokemonService, 'get').and.returnValue(pokemonList);
 
     fixture.detectChanges();
     await fixture.whenStable();

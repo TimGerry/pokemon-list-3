@@ -2,6 +2,6 @@
     <app-loading><p>Your Pokémon team is loading!</p></app-loading>
 }
 @else {
-    <app-pokemon-list [pokemonList]="pokemonList" (clickPokemon)="attack($event)"></app-pokemon-list>
+    <app-pokemon-list [pokemonList]="pokemonList" (clickPokemon)="navigateToPokemon($event)"></app-pokemon-list>
 }
 <app-pokemon-form></app-pokemon-form>

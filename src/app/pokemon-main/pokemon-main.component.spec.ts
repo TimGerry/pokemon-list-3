@@ -2,6 +2,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 
 import { PokemonMainComponent } from './pokemon-main.component';
 import { PokemonService } from '../services/pokemon.service';
+import { of } from 'rxjs';
 
 fdescribe('PokemonMainComponent', () => {
   let component: PokemonMainComponent;
@@ -36,7 +37,7 @@ fdescribe('PokemonMainComponent', () => {
   });
 
   fit('should display pokémon', async () => {
-    pokemonServiceSpy.get.and.returnValue(pokemonList);
+    pokemonServiceSpy.getAll.and.returnValue(of(pokemonList));
 
     fixture.detectChanges();
     await fixture.whenStable();

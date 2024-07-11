@@ -4,6 +4,7 @@ import { PokemonListComponent } from '../pokemon-list/pokemon-list.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { Pokemon } from '../models/pokemon.model';
 import { PokemonService } from '../services/pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-main',
@@ -15,16 +16,16 @@ import { PokemonService } from '../services/pokemon.service';
 export class PokemonMainComponent implements OnInit {
   pokemonList: Pokemon[] | undefined = undefined;
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, private router: Router) {
     console.log('constructor!');
   }
 
   ngOnInit(): void {
     console.log('oninit!');
-    this.pokemonService.get().subscribe(data => this.pokemonList = data);
+    this.pokemonService.getAll().subscribe(data => this.pokemonList = data);
   }
 
-  attack(pokemon: Pokemon) {
-    window.alert(`${pokemon.name} used ${pokemon.attack}`);
+  navigateToPokemon(pokemon: Pokemon) {
+    this.router.navigate(['pokemon', pokemon.name]);
   }
 }

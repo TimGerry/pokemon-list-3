@@ -3,9 +3,7 @@ import { Pokemon } from '../models/pokemon.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class PokemonService {
 
   baseUrl = 'http://localhost:3000/pokemon';

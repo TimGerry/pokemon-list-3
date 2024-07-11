@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { PokemonMainComponent } from './pokemon-main/pokemon-main.component';
+import { PokemonMainComponent } from './pokemon/pokemon-main/pokemon-main.component';
 import { ShopComponent } from './shop/shop.component';
-import { PokemonTrainingComponent } from './pokemon-training/pokemon-training.component';
-import { pokemonResolver } from './resolvers/pokemon.resolver';
+import { PokemonTrainingComponent } from './pokemon/pokemon-training/pokemon-training.component';
+import { pokemonResolver } from './pokemon/resolvers/pokemon.resolver';
 import { moneyGuard } from './guards/money.guard';
 
 export const routes: Routes = [

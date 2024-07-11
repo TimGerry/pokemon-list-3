@@ -21,7 +21,7 @@ export class PokemonMainComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('oninit!');
-    this.pokemonList = this.pokemonService.get();
+    this.pokemonService.get().subscribe(data => this.pokemonList = data);
   }
 
   attack(pokemon: Pokemon) {

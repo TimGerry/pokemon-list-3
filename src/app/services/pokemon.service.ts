@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
-  #pokemonList: Pokemon[] = [
-    { name: 'garchomp', type: 'ground', type2: 'dragon', attack: 'outrage', level: 60 },
-    { name: 'squirtle', type: 'water', attack: 'water gun', level: 5 },
-    { name: 'magikarp', type: 'water', attack: 'splash', level: 100 }
-  ];
+  baseUrl = 'http://localhost:3000/pokemon';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  get(): Pokemon[] {
-    return [...this.#pokemonList];
+  get(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(this.baseUrl);
   }
 }

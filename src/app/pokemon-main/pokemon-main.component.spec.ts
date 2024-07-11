@@ -7,7 +7,7 @@ fdescribe('PokemonMainComponent', () => {
   let component: PokemonMainComponent;
   let fixture: ComponentFixture<PokemonMainComponent>;
   let nativeEl: HTMLElement;
-  let pokemonService: PokemonService
+  let pokemonServiceSpy: jasmine.SpyObj<PokemonService>;
 
   const pokemonList = [
     { name: 'charmander', type: 'fire', attack: 'ember', level: 5 },
@@ -17,12 +17,13 @@ fdescribe('PokemonMainComponent', () => {
   ];
 
   beforeEach(async () => {
+    pokemonServiceSpy = jasmine.createSpyObj(PokemonService, ['get']);
+
     await TestBed.configureTestingModule({
-      imports: [PokemonMainComponent]
+      imports: [PokemonMainComponent],
+      providers: [{ provide: PokemonService, useValue: pokemonServiceSpy }]
     })
     .compileComponents();
-
-    pokemonService = TestBed.inject(PokemonService);
 
     fixture = TestBed.createComponent(PokemonMainComponent);
     component = fixture.componentInstance;
@@ -35,7 +36,7 @@ fdescribe('PokemonMainComponent', () => {
   });
 
   fit('should display pokémon', async () => {
-    spyOn(pokemonService, 'get').and.returnValue(pokemonList);
+    pokemonServiceSpy.get.and.returnValue(pokemonList);
 
     fixture.detectChanges();
     await fixture.whenStable();

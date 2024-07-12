@@ -7,13 +7,15 @@ import { PokemonTrainingComponent } from './pokemon-training/pokemon-training.co
 import { LoadingComponent } from '../loading/loading.component';
 import { OptionalPipe } from '../pipes/optional.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HoverDirective } from '../directives/hover.directive';
+import { OrDirective } from '../directives/or.directive';
 
 
 
 @NgModule({
   declarations: [PokemonMainComponent, PokemonFormComponent, PokemonListComponent, PokemonTrainingComponent],
   imports: [
-    CommonModule, LoadingComponent, OptionalPipe, ReactiveFormsModule
+    CommonModule, LoadingComponent, OptionalPipe, ReactiveFormsModule, HoverDirective, OrDirective
   ]
 })
 export class PokemonModule { }

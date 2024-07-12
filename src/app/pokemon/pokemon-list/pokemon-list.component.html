@@ -12,11 +12,11 @@
     <tbody>
         @for (pokemon of pokemonList; track pokemon.name) {
             <tr (click)="pokemonClicked(pokemon)">
-                <td [class.level100]="pokemon.level === 100">{{ pokemon.name }}</td>
+                <td [class.level100]="pokemon.level === 100" appHover="green">{{ pokemon.name }}</td>
                 <td>{{ pokemon.type }}</td>
                 <td>{{ pokemon.type2 | optional : '/' }}</td>
                 <td>{{ pokemon.attack }}</td>
-                <td>{{ pokemon.level }}</td>
+                <td>{{ pokemon.level }} <p class="text-danger" *appOr="[pokemon.level < 1, pokemon.level > 100]">ILLEGAL LEVEL</p></td>
                 <td><img class="miniature" [src]="'https://img.pokemondb.net/artwork/avif/' + pokemon.name + '.avif'" [alt]="pokemon.name"></td>
             </tr>
         }

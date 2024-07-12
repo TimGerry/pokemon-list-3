@@ -4,4 +4,4 @@
 @else {
     <app-pokemon-list [pokemonList]="pokemonList" (clickPokemon)="navigateToPokemon($event)"></app-pokemon-list>
 }
-<app-pokemon-form></app-pokemon-form>
+<app-pokemon-form (submitted)="add($event)"></app-pokemon-form>

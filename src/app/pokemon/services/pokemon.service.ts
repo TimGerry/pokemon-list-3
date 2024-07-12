@@ -17,4 +17,8 @@ export class PokemonService {
   get(name: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.baseUrl}/${name}`);
   }
+
+  add(pokemonToAdd: Pokemon): Observable<void> {
+    return this.http.post<void>(this.baseUrl, { id: pokemonToAdd.name, ...pokemonToAdd });
+  }
 }

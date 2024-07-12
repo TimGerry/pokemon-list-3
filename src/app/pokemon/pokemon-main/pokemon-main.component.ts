@@ -17,10 +17,18 @@ export class PokemonMainComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('oninit!');
-    this.pokemonService.getAll().subscribe(data => this.pokemonList = data);
+    this.load();
   }
 
   navigateToPokemon(pokemon: Pokemon) {
     this.router.navigate(['pokemon', pokemon.name]);
+  }
+
+  add(pokemon: Pokemon) {
+    this.pokemonService.add(pokemon).subscribe(() => this.load());
+  }
+
+  private load() {
+    this.pokemonService.getAll().subscribe(data => this.pokemonList = data);
   }
 }

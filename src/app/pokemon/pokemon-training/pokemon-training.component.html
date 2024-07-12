@@ -1,7 +1,7 @@
 @if(pokemon === undefined) {
     <app-loading></app-loading>
 } @else {
-    <h2>Training {{ pokemon.name }}</h2>
+    <h2>Training {{ pokemon.name }} (level {{ pokemon.level }})</h2>
     <img [src]="'https://img.pokemondb.net/artwork/avif/' + pokemon.name + '.avif'" [alt]="pokemon.name">
     <br>
     <button (click)="train()">Start training!</button>

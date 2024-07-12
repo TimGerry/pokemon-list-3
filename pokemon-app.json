@@ -13,7 +13,7 @@
       "name": "squirtle",
       "type": "water",
       "attack": "water gun",
-      "level": 5
+      "level": 9
     },
     {
       "id": "magikarp",
@@ -27,7 +27,7 @@
       "name": "mudkip",
       "type": "water gun",
       "attack": "water gun",
-      "level": 5
+      "level": 101
     },
     {
       "id": "charizard",
@@ -44,6 +44,14 @@
       "type2": "poison",
       "attack": "spikes",
       "level": 25
+    },
+    {
+      "id": "swampert",
+      "name": "swampert",
+      "type": "water",
+      "type2": "ground",
+      "attack": "earthquake",
+      "level": 113
     }
   ]
 }

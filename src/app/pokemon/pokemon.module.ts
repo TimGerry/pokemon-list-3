@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { PokemonMainComponent } from './pokemon-main/pokemon-main.component';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
@@ -15,7 +15,7 @@ import { OrDirective } from '../directives/or.directive';
 @NgModule({
   declarations: [PokemonMainComponent, PokemonFormComponent, PokemonListComponent, PokemonTrainingComponent],
   imports: [
-    CommonModule, LoadingComponent, OptionalPipe, ReactiveFormsModule, HoverDirective, OrDirective
+    CommonModule, LoadingComponent, OptionalPipe, AsyncPipe, ReactiveFormsModule, HoverDirective, OrDirective
   ]
 })
 export class PokemonModule { }

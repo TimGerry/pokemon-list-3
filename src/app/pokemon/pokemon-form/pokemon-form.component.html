@@ -49,7 +49,7 @@
             <p class="text-danger">Level between 1 and 100 required</p>
         }
     </div>
-    <button [disabled]="!pokemonForm.valid">Add Pokémon!</button>
+    <button type="submit" [disabled]="!pokemonForm.valid">Add Pokémon!</button>
     <button type="button" (click)="log()">Log</button>
     <button type="button" (click)="reset()">Reset</button>
 </form>
